@@ -1,10 +1,78 @@
 {% extends "base.html" %}
 
 {% block content %}
-<div class="max-w-2xl mx-auto bg-white rounded-lg shadow-md overflow-hidden">
-    <div class="p-6">
-        <h1 class="text-3xl font-bold text-gray-900 mb-4">Welcome to My Portfolio</h1>
-        <p class="text-gray-600">Your content here</p>
+<div class="max-w-7xl mx-auto px-4 py-8">
+    <h1 class="text-4xl font-bold text-gray-900 mb-8 text-center">My Projects</h1>
+    
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Project Card 1 -->
+        <a href="{{ url_for('project_detail', project_id=1) }}" class="group block bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300 border border-gray-100">
+            <div class="relative h-48 overflow-hidden">
+                <img src="{{ url_for('static', filename='images/project1-thumbnail.jpg') }}" 
+                     alt="Project 1" 
+                     class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-300">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+            </div>
+            <div class="p-6">
+                <h3 class="text-xl font-bold text-gray-900 mb-2 group-hover:text-blue-600 transition-colors">
+                    E-Commerce Platform
+                </h3>
+                <p class="text-gray-600 mb-4 line-clamp-2">
+                    A full-featured e-commerce platform with user authentication, product catalog, and payment processing.
+                </p>
+                <div class="flex flex-wrap gap-2">
+                    <span class="px-2 py-1 bg-blue-100 text-blue-800 text-xs font-medium rounded-full">Python</span>
+                    <span class="px-2 py-1 bg-green-100 text-green-800 text-xs font-medium rounded-full">Flask</span>
+                    <span class="px-2 py-1 bg-yellow-100 text-yellow-800 text-xs font-medium rounded-full">PostgreSQL</span>
+                </div>
+            </div>
+        </a>
+
+        <!-- Project Card 2 -->
+        <a href="{{ url_for('project_detail', project_id=2) }}" class="group block bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300 border border-gray-100">
+            <div class="relative h-48 overflow-hidden">
+                <img src="{{ url_for('static', filename='images/project2-thumbnail.jpg') }}" 
+                     alt="Project 2" 
+                     class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-300">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+            </div>
+            <div class="p-6">
+                <h3 class="text-xl font-bold text-gray-900 mb-2 group-hover:text-blue-600 transition-colors">
+                    Task Management App
+                </h3>
+                <p class="text-gray-600 mb-4 line-clamp-2">
+                    A collaborative task management application with real-time updates and team collaboration features.
+                </p>
+                <div class="flex flex-wrap gap-2">
+                    <span class="px-2 py-1 bg-blue-100 text-blue-800 text-xs font-medium rounded-full">JavaScript</span>
+                    <span class="px-2 py-1 bg-purple-100 text-purple-800 text-xs font-medium rounded-full">React</span>
+                    <span class="px-2 py-1 bg-green-500 text-white text-xs font-medium rounded-full">Node.js</span>
+                </div>
+            </div>
+        </a>
+
+        <!-- Project Card 3 -->
+        <a href="{{ url_for('project_detail', project_id=3) }}" class="group block bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300 border border-gray-100">
+            <div class="relative h-48 overflow-hidden">
+                <img src="{{ url_for('static', filename='images/project3-thumbnail.jpg') }}" 
+                     alt="Project 3" 
+                     class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-300">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+            </div>
+            <div class="p-6">
+                <h3 class="text-xl font-bold text-gray-900 mb-2 group-hover:text-blue-600 transition-colors">
+                    Data Visualization Dashboard
+                </h3>
+                <p class="text-gray-600 mb-4 line-clamp-2">
+                    Interactive data visualization dashboard for analyzing and presenting complex datasets with custom charts.
+                </p>
+                <div class="flex flex-wrap gap-2">
+                    <span class="px-2 py-1 bg-orange-100 text-orange-800 text-xs font-medium rounded-full">Python</span>
+                    <span class="px-2 py-1 bg-blue-600 text-white text-xs font-medium rounded-full">D3.js</span>
+                    <span class="px-2 py-1 bg-green-100 text-green-800 text-xs font-medium rounded-full">Pandas</span>
+                </div>
+            </div>
+        </a>
     </div>
 </div>
 {% endblock %}

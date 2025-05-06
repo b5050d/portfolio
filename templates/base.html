@@ -7,15 +7,45 @@
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="bg-gray-100">
-    <nav class="bg-gray-800 text-white">
-        <div class="max-w-7xl mx-auto px-4">
+    <nav class="bg-navy-900 shadow">
+        <div class="max-w-7xl bg-navy-900 mx-auto px-4">
             <div class="flex justify-between h-16">
                 <div class="flex items-center">
-                    <a href="{{ url_for('home') }}" class="text-xl font-bold">Portfolio - Ben Dyer</a>
+                    <a href="{{ url_for('home') }}" class="text-xl font-bold text-white">Portfolio - Ben Dyer</a>
+                </div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="{{ url_for('home') }}" class="px-3 py-2 text-sm font-medium text-gray-200 hover:text-white transition-colors">Portfolio</a>
+                    <a href="{{ url_for('projects') }}" class="px-3 py-2 text-sm font-medium text-gray-200 hover:text-white transition-colors">Projects</a>
+                </div>
+                <!-- Mobile menu button -->
+                <div class="md:hidden flex items-center">
+                    <button type="button" class="text-gray-300 hover:text-white focus:outline-none" aria-controls="mobile-menu" aria-expanded="false">
+                        <span class="sr-only">Open main menu</span>
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
                 </div>
             </div>
         </div>
+        <!-- Mobile menu, show/hide based on menu state -->
+        <div class="md:hidden hidden bg-navy-800" id="mobile-menu">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="{{ url_for('home') }}" class="block px-3 py-2 text-base font-medium text-gray-200 hover:bg-navy-700 hover:text-white">Portfolio</a>
+                <a href="{{ url_for('projects') }}" class="block px-3 py-2 text-base font-medium text-gray-200 hover:bg-navy-700 hover:text-white">Projects</a>
+            </div>
+        </div>
     </nav>
+    
+    <script>
+        // Toggle mobile menu
+        document.querySelector('[aria-controls="mobile-menu"]').addEventListener('click', function() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+            const expanded = this.getAttribute('aria-expanded') === 'true' || false;
+            this.setAttribute('aria-expanded', !expanded);
+        });
+    </script>
 
     <main class="max-w-7xl mx-auto px-4 py-8">
         {% block content %}{% endblock %}
