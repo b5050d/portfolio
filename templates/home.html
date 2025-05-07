@@ -73,13 +73,42 @@
                     <p class="text-gray-600">With a background in test engineering and a Master's in Computer Science, I'm excited to join a team where I can contribute, grow, and stay on top of emerging tech. Hard-working, curious, and always ready to help out.</p>
                 </div>
             </div>
+            <!-- sample eductiona-->
+            <div class="bg-white rounded-xl shadow-md overflow-hidden">
+                <div class="bg-indigo-950 px-6 py-3">
+                    <h2 class="text-xl font-bold text-white">Education test</h2>
+                </div>
+                <div class="p-6">
+                    {% for education in educations %}
+                        <div class="mb-4 pb-4 border-b border-gray-100">
+                            <div class="flex justify-between items-baseline">
+                                <h3 class="text-lg font-semibold text-gray-800">{{ education.title }}</h3>
+                                <span class="text-xs bg-blue-100 text-blue-800 px-2 py-0.5 rounded">{{ education.date }}</span>
+                            </div>
+                            <div class="flex justify-between text-sm text-gray-600 mt-1">
+                                <span>{{ education.institution }}</span>
+                                <span class="text-xs text-gray-500">{{ education.location }}</span>
+                            </div>
+                            <ul class="mt-1 text-sm text-gray-600 space-y-0.5">
+                                {% for bullet in education.bullets %}
+                                    <li class="flex items-center">
+                                        <span class="w-1.5 h-1.5 bg-gray-400 rounded-full mr-2"></span>
+                                        {{ bullet }}
+                                    </li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    {% endfor %}
+                </div>
+            
+            </div>
 
             <!-- Education Section -->
             <div class="bg-white rounded-xl shadow-md overflow-hidden">
                 <div class="bg-indigo-950 px-6 py-3">
                     <h2 class="text-xl font-bold text-white">Education</h2>
                 </div>
-                <div class="p-6">
+                
                 
                 <!-- Education Entry 1 -->
                 <div class="mb-4 pb-4 border-b border-gray-100">
