@@ -50,7 +50,7 @@
                                 </svg>
                             </a>
                             <!-- Resume PDF -->
-                            <a href="{{ url_for('static', filename='BDyer_Resume_5_25.pdf') }}" target="_blank" class="inline-flex items-center px-3 py-1.5 border border-transparent text-xs font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-colors">
+                            <a href="{{ url_for('static', filename='BDyer_Resume_5_25.pdf') }}" target="_blank" class="inline-flex items-center px-3 py-1.5 border border-transparent text-xs font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-indigo-950 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-colors">
                                 <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
                                 </svg>
@@ -63,16 +63,23 @@
         </div>
 
         <!-- Main Content Column (70% width on desktop) -->
-        <div class="md:col-span-3 space-y-8">
+        <div class="md:col-span-3 space-y-6">
             <!-- About Me Section -->
-            <div class="bg-white rounded-lg shadow-md p-6">
-                <h2 class="text-2xl font-bold text-gray-900 mb-4">About Me</h2>
-                <p class="text-gray-600">With a background in test engineering and a Master’s in Computer Science, I’m excited to join a team where I can contribute, grow, and stay on top of emerging tech. Hard-working, curious, and always ready to help out.</p>
+            <div class="bg-white rounded-xl shadow-md overflow-hidden">
+                <div class="bg-indigo-950 px-6 py-3 rounded-t-lg">
+                    <h2 class="text-xl font-bold text-white">About Me</h2>
+                </div>
+                <div class="p-6">
+                    <p class="text-gray-600">With a background in test engineering and a Master's in Computer Science, I'm excited to join a team where I can contribute, grow, and stay on top of emerging tech. Hard-working, curious, and always ready to help out.</p>
+                </div>
             </div>
 
             <!-- Education Section -->
-            <div class="bg-white rounded-lg shadow-md p-4">
-                <h2 class="text-xl font-bold text-gray-900 mb-3">Education</h2>
+            <div class="bg-white rounded-xl shadow-md overflow-hidden">
+                <div class="bg-indigo-950 px-6 py-3">
+                    <h2 class="text-xl font-bold text-white">Education</h2>
+                </div>
+                <div class="p-6">
                 
                 <!-- Education Entry 1 -->
                 <div class="mb-4 pb-4 border-b border-gray-100">
@@ -124,15 +131,38 @@
             </div>
 
             <!-- Skills Section -->
-            <div class="bg-white rounded-lg shadow-md p-6">
-                <h2 class="text-2xl font-bold text-gray-900 mb-4">Skills</h2>
-                <p class="text-gray-600">Your skills will go here.</p>
+            <div class="bg-white rounded-xl shadow-md overflow-hidden">
+                <div class="bg-indigo-950 px-6 py-3">
+                    <h2 class="text-xl font-bold text-white">Skills</h2>
+                </div>
+                <div class="p-6">
+                    <p class="text-gray-600">Your skills will go here.</p>
+                </div>
             </div>
 
-            <!-- Professional Experience Section -->
-            <div class="bg-white rounded-lg shadow-md p-6">
-                <h2 class="text-2xl font-bold text-gray-900 mb-4">Professional Experience</h2>
-                <p class="text-gray-600">Your work experience will go here.</p>
+            <!-- Work Experience Section -->
+            <div class="bg-white rounded-xl shadow-md overflow-hidden">
+                <div class="bg-indigo-950 px-6 py-3">
+                    <h2 class="text-xl font-bold text-white">Work Experience</h2>
+                </div>
+                <div class="p-6">
+                    <p class="text-gray-600">Your work experience will go here.</p>
+                </div>
+
+                <!-- Education Entry 3 -->
+                <div>
+                    <div class="flex justify-between items-baseline">
+                        <h3 class="text-lg font-semibold text-gray-800">Bachelor of Science, Mechanical Engineering</h3>
+                        <span class="text-xs bg-blue-100 text-blue-800 px-2 py-0.5 rounded">May, 2021</span>
+                    </div>
+                    <div class="flex justify-between text-sm text-gray-600 mt-1">
+                        <span>Colorado State University</span>
+                        <span class="text-xs text-gray-500">Fort Collins, CO</span>
+                    </div>
+                    <ul class="mt-1 text-sm text-gray-600 space-y-0.5">
+                    </ul>
+                </div>
+
             </div>
         </div>
     </div>

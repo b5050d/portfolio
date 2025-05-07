@@ -7,21 +7,25 @@
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="bg-gray-100">
-    <nav class="bg-navy-900 shadow">
-        <div class="max-w-7xl bg-navy-900 mx-auto px-4">
+    <header class="bg-indigo-950 shadow-lg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between h-16">
                 <div class="flex items-center">
-                    <a href="{{ url_for('home') }}" class="text-xl font-bold text-white">Portfolio - Ben Dyer</a>
+                    <a href="{{ url_for('home') }}" class="text-xl font-bold text-white hover:text-blue-100 transition-colors">Ben Dyer</a>
                 </div>
                 <div class="hidden md:flex items-center space-x-8">
-                    <a href="{{ url_for('home') }}" class="px-3 py-2 text-sm font-medium text-gray-200 hover:text-white transition-colors">Portfolio</a>
-                    <a href="{{ url_for('projects') }}" class="px-3 py-2 text-sm font-medium text-gray-200 hover:text-white transition-colors">Projects</a>
+                    <a href="{{ url_for('home') }}" class="px-3 py-2 text-sm font-medium text-blue-100 hover:text-white transition-colors border-b-2 border-transparent hover:border-white">
+                        Portfolio
+                    </a>
+                    <a href="{{ url_for('projects') }}" class="px-3 py-2 text-sm font-medium text-blue-100 hover:text-white transition-colors border-b-2 border-transparent hover:border-white">
+                        Projects
+                    </a>
                 </div>
                 <!-- Mobile menu button -->
                 <div class="md:hidden flex items-center">
-                    <button type="button" class="text-gray-300 hover:text-white focus:outline-none" aria-controls="mobile-menu" aria-expanded="false">
+                    <button type="button" class="inline-flex items-center justify-center p-2 rounded-md text-blue-200 hover:text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white" aria-controls="mobile-menu" aria-expanded="false">
                         <span class="sr-only">Open main menu</span>
-                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <svg class="block h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
                         </svg>
                     </button>
@@ -29,13 +33,13 @@
             </div>
         </div>
         <!-- Mobile menu, show/hide based on menu state -->
-        <div class="md:hidden hidden bg-navy-800" id="mobile-menu">
+        <div class="md:hidden hidden bg-indigo-950" id="mobile-menu">
             <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-                <a href="{{ url_for('home') }}" class="block px-3 py-2 text-base font-medium text-gray-200 hover:bg-navy-700 hover:text-white">Portfolio</a>
-                <a href="{{ url_for('projects') }}" class="block px-3 py-2 text-base font-medium text-gray-200 hover:bg-navy-700 hover:text-white">Projects</a>
+                <a href="{{ url_for('home') }}" class="block px-3 py-2 text-base font-medium text-blue-100 hover:bg-blue-600 hover:text-white">Portfolio</a>
+                <a href="{{ url_for('projects') }}" class="block px-3 py-2 text-base font-medium text-blue-100 hover:bg-blue-600 hover:text-white">Projects</a>
             </div>
         </div>
-    </nav>
+    </header>
     
     <script>
         // Toggle mobile menu
