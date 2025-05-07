@@ -1,7 +1,7 @@
 
 
 class Education():
-    def __init__(self, title: str, institution: str, date: str, location: str, bullets: list):
+    def __init__(self, title: str, institution: str, date: str, location: str, bullets: list = []):
         self.title = title
         self.institution = institution
         self.date = date
@@ -19,5 +19,22 @@ educations.append(
         bullets=[
             "Earned\tGraduate Certificate in Artificial Intelligence\tas part of MSCS program"
         ]
+    )
+)
+educations.append(
+    Education(
+        title = "Google IT Autommation",
+        institution="Coursera Specialization offered by Google",
+        date="July, 2022",
+        location="Online",
+
+    )
+)
+educations.append(
+    Education(
+        title="Bachelor of Science, Mechanical Engineering",
+        institution="Colorado State University",
+        date="May, 2021",
+        location="Fort Collins, CO",
     )
 )
