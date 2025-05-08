@@ -4,7 +4,7 @@ app = Flask(__name__)
 from home_objects import educations
 from skills import skill_categories
 from work_experiences import work_experiences
-from projects import projects
+from projects import my_projects
 
 @app.route('/')
 def home():
@@ -17,14 +17,13 @@ def home():
 
 @app.route('/projects')
 def projects():
-    return render_template('projects.html', projects=projects)
+    return render_template('projects.html', projects=my_projects)
     # return "Hello World"
-
 
 @app.route('/project/<int:project_id>')
 def project_page(project_id):
     project = projects[project_id - 1]
-    return render_template('project_page.html', project=project)
+    return render_template('project_page.html')
 
 if __name__ == '__main__':
     app.run(debug=True)
