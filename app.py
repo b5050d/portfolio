@@ -22,8 +22,8 @@ def projects():
 
 @app.route('/project/<int:project_id>')
 def project_page(project_id):
-    project = projects[project_id - 1]
-    return render_template('project_page.html')
+    project = my_projects[project_id]
+    return render_template('project_page.html', project=project)
 
 if __name__ == '__main__':
     app.run(debug=True)
