@@ -1,7 +1,13 @@
-
-
 class Project:
-    def __init__(self, id: int, name: str, description: str, bullets: list = [], bullet_colors: list = [], image_path: str = ""):
+    def __init__(
+        self,
+        id: int,
+        name: str,
+        description: str,
+        bullets: list = [],
+        bullet_colors: list = [],
+        image_path: str = "",
+    ):
         self.id = id
         self.name = name
         self.description = description
@@ -14,7 +20,7 @@ my_projects = []
 
 my_projects.append(
     Project(
-        id = 0,
+        id=0,
         name="Sim Racing Pedals",
         description="I created 3D printed sim-racing pedals",
         bullets=[
@@ -22,11 +28,7 @@ my_projects.append(
             "Embedded Systems",
             "Programming",
         ],
-        bullet_colors = [
-            "blue",
-            "green",
-            "yellow"
-        ],
-        image_path="moose.png"
+        bullet_colors=["blue", "green", "yellow"],
+        image_path="moose.png",
     )
 )
