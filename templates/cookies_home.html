@@ -1,0 +1,32 @@
+{% extends "cookies_base.html" %}
+
+{% block content %}
+<div class="max-w-7xl mx-auto px-4 py-8">
+    <h1 class="text-4xl font-bold text-violet-800 mb-8 text-center">Cookies Listings</h1>
+    
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {% for cookie in cookies %}
+        <a href="{{ url_for('cookie', cookie_id=cookie.id) }}" class="group block bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300 border border-gray-100">
+            <div class="relative h-48 overflow-hidden">
+                <img src="{{ url_for('static', filename=cookie.image_path) }}" 
+                     alt="{{ cookie.name }}" 
+                     class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-300">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+            </div>
+            <div class="p-6">
+                <h3 class="text-xl font-bold text-gray-900 mb-2 group-hover:text-blue-600 transition-colors">
+                    {{ cookie.name }}
+                </h3>
+                <p class="text-gray-600 mb-4 line-clamp-2">
+                    {{ cookie.description }}
+                </p>
+                <p class="text-gray-600 mb-4 line-clamp-2">
+                    {{ cookie.price }}
+                </p>
+            </div>
+        </a>
+    
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
