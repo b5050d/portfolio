@@ -3,22 +3,48 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% block title %}Portfolio - Ben Dyer{% endblock %}</title>
+    <title>{% block title %}NOCO Cookies{% endblock %}</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .cart-count {
+            background-color: #ff0000;
+            color: #ffffff;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+        }
+        /* .cart-count {
+            background: red;
+            color: white;
+            border-radius: 50%;
+            padding: 0.2em 0.5em;
+            font-size: 0.8em;
+            margin-left: 4px;
+        } */
+    </style>
 </head>
 <body class="bg-gray-100 min-h-screen flex flex-col">
-    <header class="bg-slate-900 shadow-lg">
+    <header class="bg-pink-50 shadow-lg">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between h-16">
                 <div class="flex items-center">
-                    <a href="{{ url_for('home') }}" class="text-xl font-bold text-white hover:text-blue-100 transition-colors">Portfolio - Ben Dyer</a>
+                    <a href="{{ url_for('home') }}" class="text-xl font-bold text-rose-600 hover:text-rose-400 transition-colors">NOCO Cookies</a>
                 </div>
                 <div class="hidden md:flex items-center space-x-8">
                     <a href="{{ url_for('home') }}" class="px-3 py-2 text-sm font-medium text-blue-100 hover:text-white transition-colors border-b-2 border-transparent hover:border-white">
-                        Portfolio
+                        Ben's Portfolio (unrelated)
                     </a>
-                    <a href="{{ url_for('projects') }}" class="px-3 py-2 text-sm font-medium text-blue-100 hover:text-white transition-colors border-b-2 border-transparent hover:border-white">
-                        Projects
+                    <a href="{{ url_for('cookies_home') }}" class="px-3 py-2 text-sm font-medium text-rose-600 hover:text-white transition-colors border-b-2 border-transparent hover:border-white">
+                        Cookies
+                    </a>
+                    <a href="{{ url_for('cart') }}" class="relative">
+                        🛒 Cart
+                        {% if cart_count > 0 %}
+                            <span class="cart-count absolute -top-2 -right-2 bg-rose-600 text-white rounded-full p-1 text-xs">{{ cart_count }}</span>
+                        {% endif %}
                     </a>
                 </div>
                 <!-- Mobile menu button -->
@@ -55,9 +81,9 @@
         {% block content %}{% endblock %}
     </main>
 
-    <footer class="bg-gray-800 text-white mt-auto">
+    <footer class="bg-pink-50 text-gray-800 mt-auto">
         <div class="max-w-7xl mx-auto py-4 px-4">
-            <p class="text-center">&copy; 2025 Portfolio - Ben Dyer</p>
+            <p class="text-center text-rose-600 font-semibold">&copy;NOCO Cookies</p>
         </div>
     </footer>
 </body>

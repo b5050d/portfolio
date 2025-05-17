@@ -1,0 +1,18 @@
+{% extends "cookies_base.html" %}
+
+{% block content %}
+
+<section class="products grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto px-4 py-8">
+
+    {% for cookie in cookies %}
+    <div class="product">
+        <img src="{{ url_for('static', filename=cookie.image) }}" alt="{{ cookie.name }}">
+        <h3>{{ cookie.name }}</h3>
+        <p>{{ cookie.description }}</p>
+        <div class="price">${{ cookie.price }}</div>
+        <button type="submit">Add to Cart</button>
+    </div>
+    {% endfor %}
+</section>
+
+{% endblock %}

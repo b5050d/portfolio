@@ -1,29 +1,45 @@
+"""
+5.17.2025
+
+The main app page
+"""
+
+################################################################
+# Imports
+################################################################
 from flask import (
     Flask,
     render_template,
     request,
     make_response,
-    render_template_string,
-    # session,
-    jsonify,
+    # render_template_string,
+    session,
+    # redirect,
+    # url_for,
+    # # jsonify,
 )
 
 import os
-
 from home_objects import educations
 from project_objects import my_projects
 from skills import skill_categories
 from work_experiences import work_experiences
-from cookies_objects import cookies
-
+from cookies_objects import cookies_listings
 from dotenv import load_dotenv
 
-import stripe
+# import stripe
 
+# Load the secret variable to ensure secure session data
 load_dotenv("/home/b5050d/secrets/myapp.env")
 
+# Initialize the app
 app = Flask(__name__)
 app.secret_key = os.environ.get("SECRET_KEY", "dev-default-key")
+
+
+################################################################
+# Routes for portfolio
+################################################################
 
 
 @app.route("/")
@@ -49,65 +65,68 @@ def project_page(project_id):
 
 
 #################################################################
-# On Call Cookies
+# Routes for Cookies Website
 #################################################################
 
 
 @app.route("/cookies")
-def cookies_home():
-    print(cookies)
-    return render_template("cookies_home.html", cookies=cookies)
+def cookies():
+    return render_template("cookies.html")
 
 
-@app.route("/cookie/<int:cookie_id>")
-def cookie(cookie_id):
-    cookie = cookies[cookie_id]
-    return render_template("cookie_page.html", cookie=cookie)
+@app.route("/cookies/shop")
+def cookies_shop():
+    return render_template("cookies_shop.html", cookies=cookies_listings)
 
 
-@app.route("/checkout", methods=["POST"])
-def checkout():
-    session = stripe.checkout.Session.create(
-        payment_method_types=["card"],
-        line_items=[
-            {
-                "name": "Cookie",
-                "description": "Cookie",
-                "images": ["https://via.placeholder.com/150"],
-                "amount": 2000,
-                "currency": "usd",
-                "quantity": 1,
-            }
-        ],
-        mode="payment",
-        success_url="http://localhost:5000/success",
-        cancel_url="http://localhost:5000/cancel",
-    )
-    return jsonify({"id": session.id})
-    # return render_template("checkout.html", session=session)
+@app.route("/cookies/cart")
+def cookies_cart():
+    return render_template("cookies_cart.html", cart=session.get("cart", {}))
+
+
+# @app.route("/checkout", methods=["POST"])
+# def checkout():
+#     session = stripe.checkout.Session.create(
+#         payment_method_types=["card"],
+#         line_items=[
+#             {
+#                 "name": "Cookie",
+#                 "description": "Cookie",
+#                 "images": ["https://via.placeholder.com/150"],
+#                 "amount": 2000,
+#                 "currency": "usd",
+#                 "quantity": 1,
+#             }
+#         ],
+#         mode="payment",
+#         success_url="http://localhost:5000/success",
+#         cancel_url="http://localhost:5000/cancel",
+#     )
+#     return jsonify({"id": session.id})
+#     # return render_template("checkout.html", session=session)
 
 
 #################################################################
 # Debugging / Scratch
 #################################################################
 
-"""
-Alright now I need to implment a cart on this guy
-
-so how would a cart work? Certain actions would add something to the cart
-"""
-
 
 @app.route("/test")
 def test():
-    count = int(request.cookies.get("count", 0))
-    html = f"""
-        <h1>Button clicked {count} times</h1>
-        <form method="POST" action="/increment">
-            <button type="submit">Click Me</button>
-        </form>
-    """
-    return render_template_string(html)
+    return render_template("test.html")
+    # count = int(request.cookies.get("count", 0))
+    # html = f"""
+    #     <h1>Button clicked {count} times</h1>
+    #     <form method="POST" action="/increment">
+    #         <button type="submit">Click Me</button>
+    #     </form>
+    # """
+    # return render_template_string(html)
+
+
+@app.route("/test2")
+def test2():
+    return render_template("test2.html")
 
 
 @app.route("/increment", methods=["POST"])

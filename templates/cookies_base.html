@@ -1,64 +1,117 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% block title %}NOCO Cookies{% endblock %}</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Shop | Northern Colorado Cookies</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Nunito:wght@300;400;700&display=swap" rel="stylesheet"/>
+  <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+      font-family: 'Nunito', sans-serif;
+      background-color: #fffdfd;
+      color: #444;
+      display: flex;
+      flex-direction: column;
+    }
+
+    header {
+      background-color: #fbc2eb;
+      padding: 2rem;
+      text-align: center;
+    }
+
+    header h1 {
+      font-family: 'Playfair Display', serif;
+      color: #fff;
+      font-size: 2.5rem;
+      margin: 0;
+    }
+
+    main {
+      flex: 1;
+      padding: 4rem 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .products {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .product {
+      background: #fff0f5;
+      border-radius: 16px;
+      padding: 1.5rem;
+      text-align: center;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+    }
+
+    .product img {
+      max-width: 100%;
+      border-radius: 12px;
+      margin-bottom: 1rem;
+    }
+
+    .product h3 {
+      font-family: 'Playfair Display', serif;
+      color: #b76e79;
+      font-size: 1.25rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .product p {
+      font-size: 0.95rem;
+      margin-bottom: 1rem;
+    }
+
+    .product .price {
+      font-weight: bold;
+      color: #444;
+      font-size: 1rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .product button {
+      background-color: #b76e79;
+      color: #fff;
+      border: none;
+      padding: 0.6rem 1.5rem;
+      border-radius: 30px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: background 0.3s ease;
+    }
+
+    .product button:hover {
+      background-color: #9c5b64;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      background-color: #fff0f5;
+      color: #999;
+      font-size: 0.9rem;
+    }
+  </style>
 </head>
-<body class="bg-gray-100 min-h-screen flex flex-col">
-    <header class="bg-teal-200 shadow-lg">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between h-16">
-                <div class="flex items-center">
-                    <a href="{{ url_for('home') }}" class="text-xl font-bold text-violet-800 hover:text-blue-100 transition-colors">NOCO Cookies</a>
-                </div>
-                <div class="hidden md:flex items-center space-x-8">
-                    <a href="{{ url_for('home') }}" class="px-3 py-2 text-sm font-medium text-blue-100 hover:text-white transition-colors border-b-2 border-transparent hover:border-white">
-                        Ben's Portfolio (unrelated)
-                    </a>
-                    <a href="{{ url_for('cookies_home') }}" class="px-3 py-2 text-sm font-medium text-blue-100 hover:text-white transition-colors border-b-2 border-transparent hover:border-white">
-                        Cookies
-                    </a>
-                </div>
-                <!-- Mobile menu button -->
-                <div class="md:hidden flex items-center">
-                    <button type="button" class="inline-flex items-center justify-center p-2 rounded-md text-blue-200 hover:text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white" aria-controls="mobile-menu" aria-expanded="false">
-                        <span class="sr-only">Open main menu</span>
-                        <svg class="block h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-                        </svg>
-                    </button>
-                </div>
-            </div>
-        </div>
-        <!-- Mobile menu, show/hide based on menu state -->
-        <div class="md:hidden hidden bg-indigo-950" id="mobile-menu">
-            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-                <a href="{{ url_for('home') }}" class="block px-3 py-2 text-base font-medium text-blue-100 hover:bg-blue-600 hover:text-white">Portfolio</a>
-                <a href="{{ url_for('projects') }}" class="block px-3 py-2 text-base font-medium text-blue-100 hover:bg-blue-600 hover:text-white">Projects</a>
-            </div>
-        </div>
-    </header>
-    
-    <script>
-        // Toggle mobile menu
-        document.querySelector('[aria-controls="mobile-menu"]').addEventListener('click', function() {
-            const menu = document.getElementById('mobile-menu');
-            menu.classList.toggle('hidden');
-            const expanded = this.getAttribute('aria-expanded') === 'true' || false;
-            this.setAttribute('aria-expanded', !expanded);
-        });
-    </script>
+<body>
+  <header>
+    <h1>Northern Colorado Cookies</h1>
+  </header>
 
-    <main class="max-w-7xl mx-auto px-4 py-8">
-        {% block content %}{% endblock %}
-    </main>
+  <main>
+    {% block content %}{% endblock %}
+  </main>
 
-    <footer class="bg-teal-200 text-white mt-auto">
-        <div class="max-w-7xl mx-auto py-4 px-4">
-            <p class="text-center">&copy;NOCO Cookies</p>
-        </div>
-    </footer>
+  <footer>
+    &copy; 2025 Northern Colorado Cookies. Crafted with love.
+  </footer>
 </body>
 </html>

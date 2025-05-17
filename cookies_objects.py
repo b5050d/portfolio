@@ -5,15 +5,15 @@ class CookieListing:
     You can buy these
     """
 
-    def __init__(self, id, name, description, price, image_path):
+    def __init__(self, id, name, description, price, image):
         self.id = id
         self.name = name
         self.description = description
         self.price = price
-        self.image_path = image_path
+        self.image = image
 
 
-cookies = [
+cookies_listings = [
     CookieListing(
         0, "12x Cookies", "Enough for small gatherings", 20, "cookies_12.png"
     ),
