@@ -10,7 +10,7 @@ from flask import (
 import os
 
 from home_objects import educations
-from projects import my_projects
+from project_objects import my_projects
 from skills import skill_categories
 from work_experiences import work_experiences
 from cookies_objects import cookies

@@ -11,7 +11,6 @@ def test_home_route():
     assert b"Work Experience" in response.data
     assert b"Education" in response.data
 
-
 def test_resume_button():
     client = app.test_client()
     response = client.get("/static/BDyer_Resume_5_25.pdf")
