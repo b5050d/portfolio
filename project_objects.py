@@ -44,7 +44,7 @@ my_projects.append(
         id=1,
         name="Sim Racing Handbrake",
         oneline_description="I created a 3D printed sim racing handbrake",
-        description = "Continuing on the challenge to beat the My Summer Car Rally using all of my own sim racing equipment, I created a 3D printed handbrake",
+        description="Continuing on the challenge to beat the My Summer Car Rally using all of my own sim racing equipment, I created a 3D printed handbrake",
         bullets=[
             "3D Printing",
             "Embedded Systems",
@@ -61,7 +61,7 @@ my_projects.append(
         id=2,
         name="Sim Racing Shifter",
         oneline_description="I created a 3D printed sim racing shifter",
-        description = "Continuing on the challenge to beat the My Summer Car Rally using all of my own sim racing equipment, I created a 3D printed shifter",
+        description="Continuing on the challenge to beat the My Summer Car Rally using all of my own sim racing equipment, I created a 3D printed shifter",
         bullets=[
             "3D Printing",
             "Embedded Systems",
@@ -78,7 +78,7 @@ my_projects.append(
         id=3,
         name="Portfolio Website",
         oneline_description="I created and self host my own portfolio website",
-        description = "You are here now! I made this site to host my projects and information about me for prospective employers, and just to share what I am up to. For this application, I used Flask, Tailwind CSS, HTML, python and bash scripts to create this CI/CD enabled web application that I self host on my own Raspberry Pi.",
+        description="You are here now! I made this site to host my projects and information about me for prospective employers, and just to share what I am up to. For this application, I used Flask, Tailwind CSS, HTML, python and bash scripts to create this CI/CD enabled web application that I self host on my own Raspberry Pi.",
         bullets=[
             "Flask",
             "Continuous Integration",
