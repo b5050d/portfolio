@@ -5,6 +5,7 @@ from flask import (
     make_response,
     render_template_string,
     # session,
+    jsonify,
 )
 
 import os
@@ -16,6 +17,8 @@ from work_experiences import work_experiences
 from cookies_objects import cookies
 
 from dotenv import load_dotenv
+
+import stripe
 
 load_dotenv("/home/b5050d/secrets/myapp.env")
 
@@ -46,7 +49,7 @@ def project_page(project_id):
 
 
 #################################################################
-# On Call wCookies
+# On Call Cookies
 #################################################################
 
 
@@ -60,6 +63,28 @@ def cookies_home():
 def cookie(cookie_id):
     cookie = cookies[cookie_id]
     return render_template("cookie_page.html", cookie=cookie)
+
+
+@app.route("/checkout", methods=["POST"])
+def checkout():
+    session = stripe.checkout.Session.create(
+        payment_method_types=["card"],
+        line_items=[
+            {
+                "name": "Cookie",
+                "description": "Cookie",
+                "images": ["https://via.placeholder.com/150"],
+                "amount": 2000,
+                "currency": "usd",
+                "quantity": 1,
+            }
+        ],
+        mode="payment",
+        success_url="http://localhost:5000/success",
+        cancel_url="http://localhost:5000/cancel",
+    )
+    return jsonify({"id": session.id})
+    # return render_template("checkout.html", session=session)
 
 
 #################################################################
