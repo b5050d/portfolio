@@ -99,6 +99,47 @@
       color: #999;
       font-size: 0.9rem;
     }
+
+    .cart {
+      max-width: 700px;
+      margin: auto;
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      padding: 20px;
+    }
+
+    .cart h2 {
+      text-align: center;
+      margin-bottom: 1.5rem;
+    }
+
+    .cart-item {
+      display: flex;
+      justify-content: space-between;
+      padding: 1rem 0;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .cart-item:last-child {
+      border-bottom: none;
+    }
+
+    .item-details {
+      flex: 2;
+    }
+
+    .item-qty, .item-price, .item-total {
+      flex: 1;
+      text-align: center;
+    }
+
+    .cart-total {
+      text-align: right;
+      font-weight: bold;
+      margin-top: 1.5rem;
+      font-size: 1.2rem;
+    }
   </style>
 </head>
 <body>

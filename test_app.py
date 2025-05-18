@@ -27,3 +27,31 @@ def test_projects_route():
 
 
 # TODO - Add testing of project pages
+
+
+def test_cookie_add_to_cart():
+    client = app.test_client()
+
+    # First, send the request
+    response = client.get("/cookies/add_to_cart/0")
+    assert response.status_code == 302
+
+    # Then, check session after the request
+    with client.session_transaction() as sess:
+        assert sess["cart"] == [0]
+
+    # send another request
+    response = client.get("/cookies/add_to_cart/1")
+    assert response.status_code == 302
+
+    # Then, check session after the request
+    with client.session_transaction() as sess:
+        assert sess["cart"] == [0, 1]
+
+    # send another request
+    response = client.get("/cookies/add_to_cart/2")
+    assert response.status_code == 302
+
+    # Then, check session after the request
+    with client.session_transaction() as sess:
+        assert sess["cart"] == [0, 1, 2]

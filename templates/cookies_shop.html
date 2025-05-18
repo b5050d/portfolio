@@ -10,7 +10,9 @@
         <h3>{{ cookie.name }}</h3>
         <p>{{ cookie.description }}</p>
         <div class="price">${{ cookie.price }}</div>
-        <button type="submit">Add to Cart</button>
+        <form action="{{ url_for('cookies_add_to_cart', cookie_id=cookie.id) }}" method="GET">
+            <button type="submit">Add to Cart</button>
+        </form>
     </div>
     {% endfor %}
 </section>

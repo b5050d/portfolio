@@ -14,8 +14,8 @@ from flask import (
     make_response,
     # render_template_string,
     session,
-    # redirect,
-    # url_for,
+    redirect,
+    url_for,
     # # jsonify,
 )
 
@@ -35,7 +35,6 @@ load_dotenv("/home/b5050d/secrets/myapp.env")
 # Initialize the app
 app = Flask(__name__)
 app.secret_key = os.environ.get("SECRET_KEY", "dev-default-key")
-
 
 ################################################################
 # Routes for portfolio
@@ -74,6 +73,15 @@ def cookies():
     return render_template("cookies.html")
 
 
+@app.route("/cookies/add_to_cart/<int:cookie_id>")
+def cookies_add_to_cart(cookie_id):
+    assert cookie_id < len(cookies_listings)
+    cart = session.get("cart", [])
+    cart.append(cookie_id)
+    session["cart"] = cart
+    return redirect(url_for("cookies_shop"))
+
+
 @app.route("/cookies/shop")
 def cookies_shop():
     return render_template("cookies_shop.html", cookies=cookies_listings)
@@ -81,7 +89,9 @@ def cookies_shop():
 
 @app.route("/cookies/cart")
 def cookies_cart():
-    return render_template("cookies_cart.html", cart=session.get("cart", {}))
+    cart = session.get("cart", [])
+    cart_items = [cookies_listings[i] for i in cart]
+    return render_template("cookies_cart.html", cart_items=cart_items)
 
 
 # @app.route("/checkout", methods=["POST"])
