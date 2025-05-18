@@ -20,6 +20,7 @@
       background-color: #fbc2eb;
       padding: 2rem;
       text-align: center;
+      position: relative;
     }
 
     header h1 {
@@ -27,6 +28,32 @@
       color: #fff;
       font-size: 2.5rem;
       margin: 0;
+    }
+
+    .nav {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      margin-top: 1rem;
+    }
+
+    .nav a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 1.1rem;
+      padding: 0.5rem 1rem;
+      border-radius: 30px;
+      transition: background 0.3s ease;
+    }
+
+    .nav a:hover {
+      background-color: rgba(255, 255, 255, 0.1);
+    }
+
+    .nav a.active {
+      background-color: #fff;
+      color: #b76e79;
     }
 
     main {
@@ -162,6 +189,10 @@
 <body>
   <header>
     <h1>Northern Colorado Cookies</h1>
+    <nav class="nav">
+      <a href="{{ url_for('cookies_shop') }}" class="{% if request.endpoint == 'cookies_shop' %}active{% endif %}">Shop</a>
+      <a href="{{ url_for('cookies_cart') }}" class="{% if request.endpoint == 'cookies_cart' %}active{% endif %}">Cart</a>
+    </nav>
   </header>
 
   <main>
