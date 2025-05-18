@@ -21,4 +21,12 @@
 <div>
     <strong>Total: ${{ total_price }}</strong>
 </div>
+<div>
+  <h1>Buy a Cookie Pack</h1>
+  <form action="{{ url_for('cookies_create_checkout_session') }}" method="POST">
+    <button type="submit" style="padding: 1rem 2rem; font-size: 1.2rem;">
+      Checkout ${{ total_price }}
+    </button>
+  </form>
+</div>
 {% endblock %}

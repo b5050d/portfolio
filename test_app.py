@@ -29,6 +29,28 @@ def test_projects_route():
 # TODO - Add testing of project pages
 
 
+def test_cookies_route():
+    client = app.test_client()
+    response = client.get("/cookies")
+    assert response.status_code == 200
+    assert b"Northern Colorado Cookies" in response.data
+    assert b"Beautifully crafted cookies" in response.data
+
+
+def test_cookies_shop_route():
+    client = app.test_client()
+    response = client.get("/cookies/shop")
+    assert response.status_code == 200
+    # assert b"Shop" in response.data
+
+
+def test_cookies_cart_route():
+    client = app.test_client()
+    response = client.get("/cookies/cart")
+    assert response.status_code == 200
+    assert b"Cart" in response.data
+
+
 def test_cookie_add_to_cart():
     client = app.test_client()
 

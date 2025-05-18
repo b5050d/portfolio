@@ -19,6 +19,7 @@ from flask import (
     # # jsonify,
 )
 
+
 import os
 from home_objects import educations
 from project_objects import my_projects
@@ -27,7 +28,8 @@ from work_experiences import work_experiences
 from cookies_objects import cookies_listings
 from dotenv import load_dotenv
 
-# import stripe
+import stripe
+
 
 # Load the secret variable to ensure secure session data
 load_dotenv("/home/b5050d/secrets/myapp.env")
@@ -35,6 +37,8 @@ load_dotenv("/home/b5050d/secrets/myapp.env")
 # Initialize the app
 app = Flask(__name__)
 app.secret_key = os.environ.get("SECRET_KEY", "dev-default-key")
+stripe.api_key = os.environ.get("STRIPE_API_KEY", "fake_non_active_key")
+YOUR_DOMAIN = os.environ.get("YOUR_DOMAIN", "http://localhost:5000")
 
 ################################################################
 # Routes for portfolio
@@ -97,26 +101,44 @@ def cookies_cart():
     )
 
 
-# @app.route("/checkout", methods=["POST"])
-# def checkout():
-#     session = stripe.checkout.Session.create(
-#         payment_method_types=["card"],
-#         line_items=[
-#             {
-#                 "name": "Cookie",
-#                 "description": "Cookie",
-#                 "images": ["https://via.placeholder.com/150"],
-#                 "amount": 2000,
-#                 "currency": "usd",
-#                 "quantity": 1,
-#             }
-#         ],
-#         mode="payment",
-#         success_url="http://localhost:5000/success",
-#         cancel_url="http://localhost:5000/cancel",
-#     )
-#     return jsonify({"id": session.id})
-#     # return render_template("checkout.html", session=session)
+@app.route("/cookies/create-checkout-session", methods=["POST"])
+def cookies_create_checkout_session():
+    cart = session.get("cart", [])
+    # cart_items = [cookies_listings[i] for i in cart]
+    total_price = sum([cookies_listings[i].price for i in cart])
+    try:
+        # Create a new Stripe Checkout Session
+        checkout_session = stripe.checkout.Session.create(
+            payment_method_types=["card"],
+            line_items=[
+                {
+                    "price_data": {
+                        "currency": "usd",
+                        "product_data": {
+                            "name": "Northern Colorado Cookie Pack",
+                        },
+                        "unit_amount": round(int(total_price * 100)),  # 1500 == $15.00
+                    },
+                    "quantity": 1,
+                }
+            ],
+            mode="payment",
+            success_url=YOUR_DOMAIN + "/cookies/success",
+            cancel_url=YOUR_DOMAIN + "/cookies/cancel",
+        )
+        return redirect(checkout_session.url, code=303)
+    except Exception as e:
+        return str(e)
+
+
+@app.route("/cookies/success")
+def cookies_success():
+    return "<h1>Payment succeeded! Thank you for your order.</h1>"
+
+
+@app.route("/cookies/cancel")
+def cookies_cancel():
+    return "<h1>Payment canceled. You can try again anytime.</h1>"
 
 
 #################################################################
