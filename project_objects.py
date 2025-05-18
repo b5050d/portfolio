@@ -89,3 +89,19 @@ my_projects.append(
         # video_link=r"https://www.youtube.com/embed/AL3es1MB4ro?si=5260cy6Y2z4P2MGV",
     )
 )
+
+my_projects.append(
+    Project(
+        id=4,
+        name="Demo Ecommerce Website (Cookies)",
+        oneline_description="I created a demonstration ecommerce website to sell homemade cookies",
+        description="This demo site piggybacks off of my portfolio website and can be accessed at the endpoint /cookies",
+        bullets=[
+            "Flask",
+            "Ecommerce",
+            "Web Design",
+        ],
+        bullet_colors=["blue", "green", "yellow"],
+        image_path="cookies_project.png",
+    )
+)
