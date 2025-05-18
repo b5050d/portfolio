@@ -101,12 +101,12 @@
     }
 
     .cart {
-      max-width: 700px;
-      margin: auto;
+      max-width: 1000px; /* make it wider */
+      margin: 2rem auto; /* add some vertical space too */
       background: white;
       border-radius: 10px;
       box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-      padding: 20px;
+      padding: 40px; /* more padding for breathing room */
     }
 
     .cart h2 {
@@ -117,8 +117,10 @@
     .cart-item {
       display: flex;
       justify-content: space-between;
-      padding: 1rem 0;
+      align-items: center;
+      padding: 1.5rem 0;
       border-bottom: 1px solid #ddd;
+      gap: 1rem;
     }
 
     .cart-item:last-child {

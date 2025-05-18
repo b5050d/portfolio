@@ -91,7 +91,10 @@ def cookies_shop():
 def cookies_cart():
     cart = session.get("cart", [])
     cart_items = [cookies_listings[i] for i in cart]
-    return render_template("cookies_cart.html", cart_items=cart_items)
+    total_price = sum([cookies_listings[i].price for i in cart])
+    return render_template(
+        "cookies_cart.html", cart_items=cart_items, total_price=total_price
+    )
 
 
 # @app.route("/checkout", methods=["POST"])

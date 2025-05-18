@@ -12,13 +12,13 @@
       {% for item in cart_items %}
       <div class="cart-item">
         <div class="item-details">{{ item.name }}</div>
-        <div class="item-qty">{{ item.qty }}</div>
+        <div class="item-qty">{{ 1 }}</div>
         <div class="item-price">${{ item.price }}</div>
-        <div class="item-total">${{ item.total }}</div>
+        <div class="item-total">${{ item.price * 1 }}</div>
       </div>
       {% endfor %}
 </div>
 <div>
-    Total: $0.00
+    <strong>Total: ${{ total_price }}</strong>
 </div>
 {% endblock %}
