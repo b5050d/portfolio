@@ -23,7 +23,7 @@ educations.append(
 )
 educations.append(
     Education(
-        title="Google IT Autommation",
+        title="Google IT Automation",
         institution="Coursera Specialization offered by Google",
         date="July, 2022",
         location="Online",
