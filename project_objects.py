@@ -75,7 +75,7 @@ my_projects.append(
 
 my_projects.append(
     Project(
-        id=4,
+        id=3,
         name="Automated PNG to STL Generator (Cookie Cutter)",
         oneline_description="I created a tool to automatically generate 3D printable cookie cutters from PNG images",
         description="This tool takes a PNG image of a cookie cutter design and generates a 3D printable STL file. It uses OpenCV to process the image and extract the contours, which are then converted into a 3D model using the custom python utilities. For now, this can be found on my github, but I am actively working on it and will be making it more robust and easier to use.",
@@ -85,13 +85,13 @@ my_projects.append(
             "Image Processing",
         ],
         bullet_colors=["blue", "green", "yellow"],
-        image_path="cookie_cutter.png",
+        image_path="cookie_cutter_collage.png",
     )
 )
 
 my_projects.append(
     Project(
-        id=3,
+        id=4,
         name="Portfolio Website",
         oneline_description="I created and self host my own portfolio website",
         description="You are here now! I made this site to host my projects and information about me for prospective employers, and just to share what I am up to. For this application, I used Flask, Tailwind CSS, HTML, python and bash scripts to create this CI/CD enabled web application that I self host on my own Raspberry Pi.",
@@ -108,7 +108,7 @@ my_projects.append(
 
 my_projects.append(
     Project(
-        id=4,
+        id=5,
         name="Demo Ecommerce Website (Cookies)",
         oneline_description="I created a demonstration ecommerce website to sell homemade cookies",
         description="This demo site piggybacks off of my portfolio website and can be accessed at the endpoint /cookies",
