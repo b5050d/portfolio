@@ -9,6 +9,8 @@ class Project:
         bullet_colors: list = [],
         image_path: str = "",
         video_link: str = None,
+        link_titles=[],
+        links_raw=[],
     ):
         self.id = id
         self.name = name
@@ -18,6 +20,9 @@ class Project:
         self.bullet_colors = bullet_colors
         self.image_path = image_path
         self.video_link = video_link
+
+        self.link_titles = link_titles
+        self.links_raw = links_raw
 
 
 my_projects = []
@@ -86,6 +91,8 @@ my_projects.append(
         ],
         bullet_colors=["blue", "green", "yellow"],
         image_path="cookie_cutter_collage.png",
+        link_titles=["GitHub Repo"],
+        links_raw=["https://github.com/b5050d/stl_generation"],
     )
 )
 
