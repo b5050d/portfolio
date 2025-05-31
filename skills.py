@@ -10,19 +10,38 @@ class SkillCategory:
 
 skill_categories = []
 
+skill_categories.append(
+    SkillCategory(
+        title="Specialized Software Skills",
+        skills=[
+            "Test Automation",
+            "Robotics",
+            "Computer Vision / Signal Processing",
+            "Machine Learning",
+            "Web Development (Flask, Jinja2)",
+        ],
+    )
+)
 # Category
 skill_categories.append(
     SkillCategory(
-        title="Languages/Frameworks",
+        title="Languages (Proficient)",
         skills=[
             "Python",
             "C",
-            "Ruby",
             "MATLAB",
-            "SQL",
-            "C#",
             "HTML",
             "CSS",
+        ],
+    )
+)
+skill_categories.append(
+    SkillCategory(
+        title="Languages (Familiar with)",
+        skills=[
+            "Ruby",
+            "SQL",
+            "C#",
             "JavaScript",
             "Java",
             "R",
@@ -32,12 +51,16 @@ skill_categories.append(
 
 skill_categories.append(
     SkillCategory(
-        title="Preferred IDE's",
+        title="DevOps & Automation",
         skills=[
-            "Visual Studio Code",
-            "STM32CubeIDE",
-            "Vim",
-            "IntelliJ IDEA",
+            "Continuous Integration (CI)",
+            "Continuous Deployment (CD)",
+            "Docker",
+            "Prometheus",
+            "Grafana",
+            "GitHub Actions",
+            "Git Hooks",
+            "Bash",
         ],
     )
 )
@@ -45,24 +68,7 @@ skill_categories.append(
 skill_categories.append(
     SkillCategory(
         title="Tools & Technologies",
-        skills=[
-            "Git",
-            "GitHub",
-            "Gitea",
-            "Docker",
-            "Virtual Box",
-            "Linux",
-        ],
-    )
-)
-
-skill_categories.append(
-    SkillCategory(
-        title="Operating Systems",
-        skills=[
-            "Windows",
-            "Linux",
-        ],
+        skills=["Git", "Linux (RHEL)", "VS Code", "STM32CubeIDE"],
     )
 )
 
@@ -75,7 +81,7 @@ skill_categories.append(
             "Raspberry Pi",
             "Raspberry Pi Pico",
             "ADRV9009-ZU11EG",
-            "Arduino Micro",
+            "Arduino Leo/Micro",
         ],
     )
 )
