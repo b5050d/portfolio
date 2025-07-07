@@ -14,7 +14,7 @@ def test_home_route():
 
 def test_resume_button():
     client = app.test_client()
-    response = client.get("/static/BDyer_Resume_5_25.pdf")
+    response = client.get("/static/BDyer_Resume_7_25.pdf")
     assert response.status_code == 200
     assert response.headers["Content-Type"] == "application/pdf"
 
