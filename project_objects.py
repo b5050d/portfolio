@@ -83,7 +83,7 @@ my_projects.append(
         id=3,
         name="Automated PNG to STL Generator (Cookie Cutter)",
         oneline_description="I created a tool to automatically generate 3D printable cookie cutters from PNG images",
-        description="This tool takes a PNG image of a cookie cutter design and generates a 3D printable STL file. It uses OpenCV to process the image and extract the contours, which are then converted into a 3D model using the custom python utilities. For now, this can be found on my github, but I am actively working on it and will be making it more robust and easier to use.",
+        description="Find at > app.pngprint.me (link)\nThis tool takes a PNG image of a cookie cutter design and generates a 3D printable STL file. It uses OpenCV to process the image and extract the contours, which are then converted into a 3D model using the custom python utilities. For now, this can be found on my github, but I am actively working on it and will be making it more robust and easier to use.",
         bullets=[
             "Python",
             "STL-Files",
