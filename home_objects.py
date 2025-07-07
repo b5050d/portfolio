@@ -37,3 +37,11 @@ educations.append(
         location="Fort Collins, CO",
     )
 )
+educations.append(
+    Education(
+        title="FAA Part 107 License",
+        institution="(trained at) Colorado State University",
+        date="January, 2025",
+        location="Fort Collins, CO",
+    )
+)
